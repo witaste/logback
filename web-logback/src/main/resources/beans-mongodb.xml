@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<beans>
+		<bean class="cn.zno.mongodb.CustomMongoClient" init-method="init" destroy-method="destroy" scope="singleton">
+			<property name="uri">
+				<value><![CDATA[mongodb://xiaoming:123456@localhost:27017/?authSource=logtest&authMechanism=MONGODB-CR]]></value>
+			</property>
+			<property name="dbName" value="logtest"></property>
+			<property name="collectionName" value="news"></property>			
+		</bean>
+	</beans>
+
+</beans>

@@ -1,0 +1,20 @@
+<configuration>
+
+	<appender name="MONGO" class="cn.zno.mongodb.MongoDBAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<mongoClient class="cn.zno.mongodb.CustomMongoClient">
+			<uri><![CDATA[mongodb://xiaoming:123456@localhost:27017/?authSource=logtest&authMechanism=MONGODB-CR]]></uri>
+			<dbName>logtest</dbName>
+			<collectionName>news</collectionName>
+		</mongoClient>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="MONGO" />
+	</root>
+
+</configuration>
